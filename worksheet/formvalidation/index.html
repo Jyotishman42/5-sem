@@ -1,0 +1,82 @@
+<html>
+
+<head>
+    <title>Form Validation</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    body {
+        width: 100vw;
+        height: 80vh;
+        background: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+</style>
+
+<body>
+    <h2>Enter Your details</h2>
+    <form action="">
+        <div class="usernmae">
+            <label for="name">Name</label>
+            <input type="text" id="username">
+        </div>
+        <div class="email">
+
+            <label for="email">E-mail</label>
+            <input type="email" name="email" id="email">
+        </div>
+        <div class="password">
+
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password">
+        </div>
+        <div class="confirmpassword">
+
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" name="confirm-password" id="confirmPassword">
+        </div>
+        <button type="submit" class="submitBtn">Submit</button>
+    </form>
+
+    <script>
+        const datas = document.getElementsByTagName("form")
+        const username = document.getElementById("username")
+        const Email = document.getElementById("email")
+        const Password = document.getElementById("password")
+        const ConfirmPassword = document.getElementById("confirmPassword")
+
+        const SubmitBtn = document.getElementsByClassName("submitBtn")[0]
+
+        SubmitBtn.addEventListener("click", (e) => {
+            e.preventDefault()
+            console.log(Email.value
+                , Password.value, ConfirmPassword.value
+            )
+            if (!Email.value.includes("@")) {
+                alert("email is not valid")
+                if (Password.value !== ConfirmPassword.value) {
+                    
+                    alert("confirmpassword is not matched")
+                }
+            } else {
+                
+                alert("You're done!")
+                username.value=""
+                Email.value = ""
+                Password.value=""
+                ConfirmPassword.value=""
+            }
+
+
+        })
+    </script>
+</body>
+
+</html>
